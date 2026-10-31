@@ -1,0 +1,19 @@
+{
+  "name": "gearhouse-parts-admin",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Vehicle spare-parts inventory, counter sales, and receipts.",
+  "scripts": {
+    "setup": "node scripts/setup-local.js",
+    "start": "node server.js",
+    "dev": "node server.js",
+    "mongo:local": "node scripts/start-local-mongo.js"
+  },
+  "dependencies": {
+    "mongodb": "^6.20.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

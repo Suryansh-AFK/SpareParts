@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#142017" />
+  <meta name="description" content="Browse vehicle spare parts from Gearhouse. Search parts, check availability, and send a pickup request." />
+  <title>Gearhouse — Parts for the road ahead</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shop.css" />
+</head>
+<body>
+  <header class="shop-header">
+    <a class="shop-brand" href="#top" aria-label="Gearhouse home"><span class="shop-mark">G</span><span><strong id="shop-name">GEARHOUSE</strong><small>VEHICLE PARTS</small></span></a>
+    <nav class="shop-nav" aria-label="Customer navigation"><a href="#catalog">Parts catalog</a><a href="#about">About the shop</a><a href="#contact">Contact</a></nav>
+    <div class="header-actions"><a class="staff-link" href="/admin.html">Shop admin</a><button class="cart-button" id="open-cart" aria-label="Open order basket">Basket <span id="cart-count">0</span></button></div>
+  </header>
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy"><div class="kicker"><i></i> YOUR LOCAL PARTS COUNTER</div><h1>Good parts.<br /><em>Ready for the road.</em></h1><p>Find the right spare part for your vehicle. Send us a pickup request and our team will confirm fitment and availability.</p><a class="hero-cta" href="#catalog">Browse in-stock parts <span>↓</span></a><div class="hero-proof"><span>✓ Genuine brands</span><span>✓ Fitment help</span><span>✓ Local pickup</span></div></div>
+      <div class="hero-art" aria-hidden="true"><div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="gear">⚙</div><div class="art-label label-one">PARTS THAT FIT</div><div class="art-label label-two">BUILT FOR THE DAILY DRIVE</div><div class="art-stamp">GH<br /><small>EST.</small></div></div>
+    </section>
+    <section class="catalog-section" id="catalog">
+      <div class="section-head"><div><div class="kicker">THE PARTS ROOM</div><h2>Find what you need.</h2><p>Search by part, brand, or vehicle. We’ll confirm fitment before your pickup.</p></div><div class="catalog-count" id="catalog-count">Loading parts…</div></div>
+      <div class="catalog-tools"><label class="search-field"><span>⌕</span><input id="catalog-search" type="search" placeholder="Search parts, brand, or vehicle…" autocomplete="off" /></label><div class="category-list" id="category-list" aria-label="Filter by category"></div></div>
+      <div class="product-grid" id="product-grid"><div class="loading-card">Loading the parts catalog…</div></div>
+    </section>
+    <section class="about-section" id="about"><div class="about-icon">✳</div><div><div class="kicker">FROM OUR COUNTER TO YOUR GARAGE</div><h2>Not sure it fits? Ask us.</h2><p>Vehicle fitment can be tricky. Add the part to your request and include your vehicle make, model, and year. We’ll check it with you before confirming pickup.</p></div><a class="outline-link" href="#contact">Get fitment help <span>↗</span></a></section>
+    <section class="contact-section" id="contact"><div><div class="kicker">WE’RE HERE TO HELP</div><h2>Talk to the parts desk.</h2><p>Questions about compatibility, stock, or an order request? Contact the shop directly.</p></div><div class="contact-card"><span class="contact-symbol">☎</span><div><small>CALL THE SHOP</small><a id="shop-phone" href="#">Contact details loading…</a></div></div><div class="contact-address" id="shop-address"></div></section>
+  </main>
+  <footer class="shop-footer"><a class="shop-brand" href="#top"><span class="shop-mark">G</span><span><strong id="footer-shop-name">GEARHOUSE</strong><small>PARTS FOR THE ROAD AHEAD</small></span></a><span>© <span id="year"></span> <span id="footer-copy-name">Gearhouse</span> · Ask us to confirm fitment before pickup.</span><a href="/admin.html">Staff sign in</a></footer>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <div id="drawer-root"></div>
+  <script src="shop.js"></script>
+</body>
+</html>

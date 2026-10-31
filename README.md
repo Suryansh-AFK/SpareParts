@@ -1,42 +1,38 @@
-# Gearhouse Parts & Inventory
+# Spare Parts Shop Manager
 
-A private shop-management web app for vehicle spare parts. The same code runs on a desktop with folder-backed records or on Vercel with MongoDB Atlas.
+A portfolio demo for a vehicle spare-parts shop. It includes a customer catalog and an admin workspace for inventory, stock movements, counter sales, receipts, and customer pickup requests.
 
-## Run it on this desktop
+> **Demo only:** Fresh installs automatically load fictional parts and example transactions so the workflows are ready to explore. Use fake customer and business information in this public demo project.
+
+## Run the demo on your computer
 
 1. Install Node.js 20 or newer.
-2. In this folder, run `npm install` once.
-3. Run `npm run setup` once. It creates a private `.env` file and prints an admin password. Save the password; you can also open `.env` in VS Code.
-4. Run `npm start` and open `http://localhost:3000` for the customer shop, or `http://localhost:3000/admin.html` for the password-protected shop workspace.
+2. Open this folder in a terminal and run `npm install`.
+3. Run `npm run setup`. This creates a local `.env` file and prints an admin password.
+4. Run `npm start`.
+5. Open:
+   - Customer catalog: `http://localhost:3000`
+   - Admin workspace: `http://localhost:3000/admin.html`
 
-Keep the terminal open while using the app. By default, live records are saved to `data/gearhouse.json` in this project folder, which is readable in VS Code. The `.env` and `data/` files are excluded from Git. Backups and CSV exports are available in Settings.
+The terminal must stay open while using the demo. By default, records are stored locally in `data/gearhouse.json`. You can inspect that file in VS Code. Settings includes backup and CSV export tools. The private `.env` and `data/` folder are excluded from Git.
 
-### Optional local MongoDB
+Optional: use a local MongoDB Community Server by setting `MONGODB_URI=mongodb://127.0.0.1:27017` in your local `.env`. The database name defaults to `gearhouse`.
 
-Install MongoDB Community Server, start `mongod`, and set `MONGODB_URI=mongodb://127.0.0.1:27017` in `.env`. The database name defaults to `gearhouse`. The app uses MongoDB whenever `MONGODB_URI` is set; otherwise it uses the JSON file above.
+## Demo workflows
 
-## What works
+- Search and browse the public parts catalog, add items to a basket, and submit a pickup request.
+- Add and edit parts with SKU, category, brand, vehicle fitment, cost, price, quantity, reorder level, and shelf location.
+- Receive stock, record returns and write-offs, correct counts, and review the movement history.
+- Create counter sales with customer details, payment method, discount, tax, numbered receipts, and stock deduction.
+- Print receipts, review customer purchase history, and void a sale to reverse its stock movement.
+- Review low-stock alerts and pickup requests; export CSV reports and JSON backups.
 
-- Inventory with SKU, category, brand, vehicle fitment, cost and selling price, quantity, reorder point, shelf location, notes, and archive/restore.
-- Stock receipts, returns, write-offs, and corrections with a movement history.
-- Counter sales with customer details, payment method, discount, tax, stock deduction, numbered receipts, printing, and sale voids that reverse stock.
-- Customer purchase history, low-stock alerts, and a browseable in-stock catalog.
-- CSV exports and full JSON backup/restore.
-- Admin sign-in, private session cookies, and sample data for reviewing the workflows.
-- Public customer catalog with search, categories, a basket, and pickup requests. Requests are saved for admin follow-up and do not reserve stock or count as paid sales.
-- Admin customer-orders view to call customers, confirm fitment, and update pickup-request status.
+The included sample catalog contains fictional products such as filters, brake pads, bulbs, coolant, and drive belts. Sample sales and movements are labeled as examples and can be removed from Settings.
 
-## Vercel deployment
+## Technology
 
-Vercel functions are stateless, so a hosted deployment uses MongoDB Atlas rather than the local JSON file. Set these Production environment variables in the Vercel project:
+- Node.js server and vanilla JavaScript, HTML, and CSS
+- Local JSON file storage by default
+- Optional MongoDB storage for local development
 
-- `ADMIN_PASSWORD`: a private password of at least 12 characters. Enter this yourself in Vercel; do not commit it.
-- `ADMIN_EMAIL`: the one Google account permitted to use Google sign-in.
-- `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET`: OAuth credentials from a Google Cloud web application. The authorized redirect URI must be `https://gearhouse-parts-admin.vercel.app/api/auth/google/callback`.
-- Google sign-in appears after these values are configured. It checks Google's verified email against `ADMIN_EMAIL`; the existing admin password remains as a fallback.
-- `SESSION_SECRET`: a random secret of at least 32 characters.
-- `MONGODB_URI`: the Atlas connection string for the `gearhouse` database.
-- `MONGODB_DB`: `gearhouse`.
-
-The Vercel project and Atlas cluster are prepared for deployment. Atlas currently allows connections from any source IP (`0.0.0.0/0`) because Vercel Static IPs are unavailable on the current plan and cost extra. The database still requires its dedicated app credentials. The local JSON file remains on this computer and is separate from the Atlas data used by the hosted app.
-
+This repository is a source-code showcase. It does not host a live demo website by itself; run the project locally using the steps above.

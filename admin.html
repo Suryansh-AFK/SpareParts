@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#111914" />
+  <script>if(location.protocol==='http:'||location.protocol==='https:')document.documentElement.classList.add('auth-pending')</script>
+  <title>Gearhouse — Parts & Inventory</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="/" aria-label="Gearhouse customer shop">
+        <span class="brand-mark"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 8.5 16 3l11 5.5v15L16 29 5 23.5z"/><path d="M5.5 8.7 16 14l10.5-5.3M16 14v14"/><path d="m11 6 11 5.4"/></svg></span>
+        <span><strong id="brand-name">GEARHOUSE</strong><small>PARTS & INVENTORY</small></span>
+      </a>
+      <div class="side-label">WORKSPACE</div>
+      <nav class="nav-list" aria-label="Main navigation">
+        <button class="nav-item active" data-page="dashboard"><span class="nav-icon">▦</span> Overview</button>
+        <button class="nav-item" data-page="inventory"><span class="nav-icon">▤</span> Inventory <span id="nav-low-count" class="nav-count hidden">0</span></button>
+        <button class="nav-item" data-page="pos"><span class="nav-icon">＋</span> New sale</button>
+        <button class="nav-item" data-page="sales"><span class="nav-icon">▧</span> Sales & receipts</button>
+        <button class="nav-item" data-page="customers"><span class="nav-icon">♙</span> Customers</button>
+        <button class="nav-item" data-page="storefront"><span class="nav-icon">◫</span> Parts catalog</button>
+      </nav>
+      <div class="side-bottom">
+        <div class="side-label">MANAGE</div>
+        <button class="nav-item" data-page="orders"><span class="nav-icon">▣</span> Customer orders <span id="nav-order-count" class="nav-count hidden">0</span></button>
+        <button class="nav-item" data-page="settings"><span class="nav-icon">⚙</span> Shop settings</button>
+        <div class="local-card"><span class="local-dot"></span><span><strong>Local workspace</strong><small>Saved on this device</small></span></div>
+        <div class="user-row"><div class="avatar">AD</div><span><strong>Shop admin</strong><small>Administrator</small></span><span class="user-more">•••</span></div>
+      </div>
+    </aside>
+    <main class="main-area">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobile-menu" aria-label="Open navigation">☰</button>
+        <div class="breadcrumbs"><span>Workspace</span><b>/</b><strong id="crumb-page">Overview</strong></div>
+        <div class="top-actions">
+          <div class="today-chip"><span class="live-dot"></span><span id="today-label"></span></div>
+          <button class="icon-btn" id="top-search-btn" title="Search inventory" aria-label="Search inventory">⌕</button>
+          <a class="staff-link" href="/">View public shop ↗</a>
+          <button class="top-primary" data-go="pos"><span>＋</span> Create sale</button>
+        </div>
+      </header>
+      <section class="page-wrap" id="page-content" aria-live="polite"></section>
+      <footer class="footer"><span>GEARHOUSE <i>·</i> PARTS OPERATIONS</span><span>Built for the daily rhythm of your shop</span></footer>
+    </main>
+  </div>
+  <div id="modal-root"></div>
+  <div id="toast-root" class="toast-root" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
